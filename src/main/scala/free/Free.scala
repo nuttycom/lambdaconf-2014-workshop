@@ -19,7 +19,7 @@ case class Suspend[F[_], A](s: F[Free[F, A]]) extends Free[F, A]
 object Free {
   def monad[F[_]] = new Monad[({ type λ[α] = Free[F, α] })#λ] {
     def pure[A](a: => A): Free[F, A] = ???
-    def bind[A, B](ma: Free[F, A])(f: A => Free[F, B]): Free[F, B]
+    def bind[A, B](ma: Free[F, A])(f: A => Free[F, B]): Free[F, B] = ???
 
     // this is not the right solution for bind!
     // def bind[A, B](ma: Free[F, A])(f: A => Free[F, B]): Free[F, B] = Bind(ma, f)
